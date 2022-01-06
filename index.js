@@ -29,7 +29,13 @@ export function replaceItem(array, item, index) {
 }
 
 // Immutably remove an item at a specific position/index within an array
-export function removeItem(array, index) {}
+export function removeItem(array, index) {
+    const newArray = [...array.slice(0, index),...array.slice(index + 1)];
+    // array = [1, 2, 3, 4, 5, 6]
+    // slice(0, 2) === [1, 2]
+    // slice(3) === [4, 5, 6]
+    return newArray;
+}
 
 //Objects:
 
@@ -38,7 +44,10 @@ export function removeItem(array, index) {}
 //     updateName({ name: "Abe" }, "Barbara")
 // should give back:
 //     { name: "Barbara"}
-export function updateName(object, newName) {}
+export function updateName(object, newName) {
+    const newArray = {...object, name: newName};
+    return newArray
+}
 
 // Immutably update the object so that the value under the "needsACupOfTea" property becomes the opposite of what it was.
 // Any other properties in the object should be maintained.
